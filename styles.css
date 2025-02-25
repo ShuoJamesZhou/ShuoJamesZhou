@@ -29,39 +29,6 @@ body {
     --section-lightBackColor: var(--section-lightBackColor);
 }
 
-@media (max-width: 768px) {
-    :root {
-        --timeline-date-width: 130px;
-        --timeline-icon-wrapper-width: 50px;
-        --sidebar-width: 200px;
-        --sidebar-toggle-left: calc(var(--sidebar-width) + 20px);
-    }
-}
-
-@media (max-width: 480px) {
-    :root {
-        --timeline-date-width: 100px;
-        --timeline-icon-wrapper-width: 40px;
-        --sidebar-width: 100%;
-        --sidebar-toggle-left: 20px;
-    }
-}
-
-@media (max-width: 480px) {
-    .main-content {
-        margin-left: 0;
-        padding: 10px;
-    }
-
-    section {
-        padding: 20px;
-    }
-
-    .experience-section {
-        max-width: 100%;
-    }
-}
-
 /*
 ==========================================================================
     Main Content and Container Styling
@@ -255,11 +222,13 @@ section.visible {
 ==========================================================================
 */
 .experience-section {
-    width: 100%;
-    position: relative;
-    padding-left: 5%;
+    padding: 40px;
     margin-bottom: 40px;
+    border-radius: 8px;
+    width: 1850px;
     background-color: #121212;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    opacity: 0;
     transform: translateY(20px);
     transition: opacity 0.5s, transform 0.5s;
 }
@@ -277,8 +246,6 @@ section.visible {
     box-shadow: 0 0 8px rgba(0, 0, 0, 0.2);
     margin-left: 20px;
     position: relative;
-    flex: 0 0 auto;
-    max-width: 1800px;
     width: 1600px;
 }
 
@@ -373,37 +340,6 @@ section.visible {
     width: 250px;
     height: 80px;
     object-fit: contain;
-}
-
-@media (max-width: 768px) {
-    .experience-section {
-        max-width: 90%;
-    }
-
-    .timeline-item {
-        flex-direction: column;
-        align-items: flex-start;
-    }
-
-    .timeline-date {
-        width: 100%;
-        margin-bottom: 10px;
-    }
-
-    .timeline-icon-wrapper {
-        width: 100%;
-        text-align: left;
-        margin-bottom: 10px;
-    }
-
-    .experience-item {
-        margin-left: 0;
-        width: 100%;
-    }
-
-    .timeline::before {
-        left: 25px;
-    }
 }
 
 /*
@@ -617,7 +553,7 @@ footer {
 }
 
 .light-mode section {
-    background-color: #f8f8f8;
+    background-color: f8f8f8;
     background-color: #00000009;
     color: #333;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
