@@ -27,7 +27,6 @@ body {
     --sidebar-toggle-left: calc(var(--sidebar-width) + 20px);
     --section-darkBackColor: #222;
     --section-lightBackColor: var(--section-lightBackColor);
-    --subSection-darkBackColor:
 }
 
 @media (max-width: 768px) {
