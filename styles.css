@@ -1,0 +1,749 @@
+/*
+==========================================================================
+    Global Reset & Base Styles
+==========================================================================
+*/
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    background-color: #121212;
+    color: #f1f1f1;
+}
+
+/*
+==========================================================================
+    Base Variables & Responsive Variable Adjustments
+==========================================================================
+*/
+:root {
+    --timeline-date-width: 170px;
+    --timeline-icon-wrapper-width: 60px;
+    --sidebar-width: 250px;
+    --sidebar-toggle-left: calc(var(--sidebar-width) + 20px);
+    --section-darkBackColor: #222;
+    --section-lightBackColor: var(--section-lightBackColor);
+    --subSection-darkBackColor:
+}
+
+@media (max-width: 768px) {
+    :root {
+        --timeline-date-width: 130px;
+        --timeline-icon-wrapper-width: 50px;
+        --sidebar-width: 200px;
+        --sidebar-toggle-left: calc(var(--sidebar-width) + 20px);
+    }
+}
+
+@media (max-width: 480px) {
+    :root {
+        --timeline-date-width: 100px;
+        --timeline-icon-wrapper-width: 40px;
+        --sidebar-width: 100%;
+        --sidebar-toggle-left: 20px;
+    }
+}
+
+@media (max-width: 480px) {
+    .main-content {
+        margin-left: 0;
+        padding: 10px;
+    }
+
+    section {
+        padding: 20px;
+    }
+
+    .experience-section {
+        max-width: 100%;
+    }
+}
+
+/*
+==========================================================================
+    Main Content and Container Styling
+==========================================================================
+*/
+.container {
+    display: flex;
+}
+
+.main-content {
+    margin-left: var(--sidebar-width);
+    padding: 20px;
+    transition: margin-left 0.3s;
+    width: 100%;
+}
+
+.main-content.expanded {
+    margin-left: 0;
+}
+
+.content-wrapper {
+    padding-left: 5%;
+    width: 100%;
+}
+
+/*
+==========================================================================
+    Sidebar and Button Stytling
+==========================================================================
+*/
+.sidebar {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: var(--sidebar-width);
+    background: linear-gradient(to bottom, #444444, #1f1f1f);
+    padding: 20px;
+    position: fixed;
+    z-index: 1000;
+    height: 100%;
+    left: 0;
+    transition: transform 0.3s ease-in-out;
+}
+
+.sidebar.hidden {
+    transform: translateX(-100%);
+}
+
+.profile-picture {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.profile-picture img {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+}
+
+.profile-picture h2 {
+    color: #fff;
+    margin-top: 10px;
+    font-size: 1.2rem;
+}
+
+.sidebar ul {
+    list-style: none;
+    margin-top: 30px;
+}
+
+.sidebar ul li {
+    margin-bottom: 10px;
+}
+
+.sidebar ul li a {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    padding: 12px 15px;
+    text-decoration: none;
+    color: #fff;
+    border-radius: 4px;
+    transition: background-color 0.3s;
+}
+
+.sidebar ul li a .icon {
+    margin-right: 10px;
+    font-size: 18px;
+}
+
+/* Sidebar Hover Effect */
+.sidebar ul li a:hover {
+    background: linear-gradient(to right, #7771717a, #333131);
+    color: #fff;
+}
+
+#sidebarToggle {
+    position: fixed;
+    bottom: 20px;
+    left: var(--sidebar-toggle-left);
+    width: 40px;
+    height: 40px;
+    background-color: #ff6347;
+    color: #fff;
+    border: none;
+    font-size: 20px;
+    cursor: pointer;
+    border-radius: 10px;
+    display: flex;
+    z-index: 10000;
+    align-items: center;
+    justify-content: center;
+    transition: left 0.3s, transform 0.3s, background-color 0.3s;
+    z-index: 10000;
+}
+
+#sidebarToggle:hover {
+    background-color: #f22929;
+}
+
+button {
+    background-color: #ff6347;
+    color: #fff;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    border-radius: 5px;
+    margin-top: auto;
+}
+
+button:hover {
+    background-color: #f22929;
+}
+
+/*
+==========================================================================
+    General Section Styling
+==========================================================================
+*/
+section {
+    padding: 40px;
+    margin-bottom: 40px;
+    border-radius: 8px;
+    width: 1850px;
+    background-color: var(--section-darkBackColor);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.5s, transform 0.5s;
+}
+
+section.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.section-title {
+    position: relative;
+    display: table;
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: #cff0fb;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+/* Blue Underline for Section Titles */
+.section-title::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -5px;
+    width: 3ch;
+    border-bottom: 2px solid #cff0fb;
+}
+
+/*
+==========================================================================
+    About Me Section
+==========================================================================
+*/
+.about p {
+    font-size: 14pt;
+}
+
+/*
+==========================================================================
+    Experience Timeline Section
+==========================================================================
+*/
+.experience-section {
+    width: 100%;
+    position: relative;
+    padding-left: 5%;
+    margin-bottom: 40px;
+    background-color: #121212;
+    transform: translateY(20px);
+    transition: opacity 0.5s, transform 0.5s;
+}
+
+.experience-section h2 {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.experience-item {
+    flex: 1;
+    background-color: var(--section-darkBackColor);
+    padding: 20px;
+    border-radius: 4px;
+    box-shadow: 0 0 8px rgba(0, 0, 0, 0.2);
+    margin-left: 20px;
+    position: relative;
+    flex: 0 0 auto;
+    max-width: 1800px;
+    width: 1600px;
+}
+
+.experience-item h1 {
+    font-size: 16pt;
+    font-weight: 700;
+    color: #ffffff;
+    margin: 0;
+}
+
+.experience-item h2 {
+    font-size: 14pt;
+    font-weight: 500;
+    color: #b1b1b1;
+    margin: 5px 0 15px 0;
+    font-style: normal;
+    text-align: left;
+    padding-left: 4px;
+    padding-top: 5px;
+}
+
+.experience-item ul {
+    padding: 10px;
+}
+
+.experience-item ul li {
+    padding: 5px;
+}
+
+/* Timeline Container & Items */
+.timeline {
+    position: relative;
+    margin: 20px 0;
+}
+
+.timeline-item {
+    display: flex;
+    align-items: flex-start;
+    margin-bottom: 50px;
+}
+
+.timeline-date {
+    width: var(--timeline-date-width);
+    font-size: 0.9rem;
+    color: #ccc;
+    display: flex;
+    height: 40px;
+    margin-top: 14px;
+}
+
+.timeline-icon-wrapper {
+    width: var(--timeline-icon-wrapper-width);
+    text-align: center;
+    flex-shrink: 0;
+}
+
+.timeline-icon {
+    background-color: #333;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    line-height: 60px;
+    color: #00adee;
+    font-size: 28px;
+    margin: 0 auto;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Vertical Blue Line in Timeline */
+.timeline::before {
+    content: "";
+    position: absolute;
+    left: calc(var(--timeline-date-width) + (var(--timeline-icon-wrapper-width) / 2));
+    top: 0;
+    bottom: 0;
+    width: 2px;
+    background-color: #00adee;
+}
+
+/*
+==========================================================================
+    Company Logo Changes
+==========================================================================
+*/
+.company-logo {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    width: 250px;
+    height: 80px;
+    object-fit: contain;
+}
+
+@media (max-width: 768px) {
+    .experience-section {
+        max-width: 90%;
+    }
+
+    .timeline-item {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .timeline-date {
+        width: 100%;
+        margin-bottom: 10px;
+    }
+
+    .timeline-icon-wrapper {
+        width: 100%;
+        text-align: left;
+        margin-bottom: 10px;
+    }
+
+    .experience-item {
+        margin-left: 0;
+        width: 100%;
+    }
+
+    .timeline::before {
+        left: 25px;
+    }
+}
+
+/*
+==========================================================================
+    Projects Section
+==========================================================================
+*/
+.projects-section {
+    display: grid;
+    gap: 10px;
+    grid-template-columns: repeat(2, 1fr);
+}
+
+.project-card {
+    padding: 1.5rem;
+    border-radius: 8px;
+}
+
+.project-header {
+    border-bottom: 2px solid #00adee;
+    padding-bottom: 1rem;
+    margin-bottom: 1rem;
+}
+
+.tech-stack {
+    margin-top: 0.5rem;
+}
+
+.tech-pill {
+    display: inline-block;
+    background-color: #443d3d;
+    color: #00adee;
+    padding: 0.3rem 0.8rem;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    margin-right: 0.5rem;
+    margin-top: 0.5rem;
+}
+
+.project-description li {
+    margin-bottom: 0.5rem;
+    padding-left: 1rem;
+    position: relative;
+}
+
+.screenshot-btn {
+    margin-top: 1rem;
+    background-color: #00adee !important;
+}
+
+.screenshot-btn:hover {
+    background-color: #007acc !important;
+}
+
+/*
+======================================================================
+    Unified Screenshot Modal Styles
+======================================================================
+*/
+.screenshot-modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(5px);
+    justify-content: center;
+    align-items: center;
+    z-index: 10000;
+}
+
+.screenshot-modal-content {
+    position: relative;
+    max-width: 90%;
+    max-height: 90%;
+}
+
+.screenshot-modal-content img {
+    width: 100%;
+    height: auto;
+    border-radius: 5px;
+}
+
+.screenshot-modal-close {
+    position: absolute;
+    top: -10px;
+    right: -10px;
+    background: #fff;
+    color: #000;
+    font-size: 2rem;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    cursor: pointer;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+/*
+==========================================================================
+    Skills Section
+==========================================================================
+*/
+.skills-section {
+    text-align: center;
+    margin: 50px 0;
+}
+
+.skill-tile {
+    color: #ffffff;
+    background-color: #443d3d;
+    padding: 10px 15px;
+    border-radius: 5px;
+    font-size: 16px;
+    font-weight: 500;
+    display: inline-block;
+    cursor: default;
+    margin: 10px;
+}
+
+.skill-tile:hover {
+    background-color: #6e6c6c;
+}
+
+.skill-group {
+    padding: 10px;
+}
+
+.skill-group:hover {
+    background-color: #55555539;
+}
+
+/*
+==========================================================================
+    Certifications Section
+==========================================================================
+*/
+.certification-item {
+    position: relative;
+    background-color: var(--section-darkBackColor);
+    padding: 20px;
+    margin-bottom: 20px;
+    border-radius: 8px;
+}
+
+.certification-title {
+    font-size: 1.7rem;
+    margin-bottom: 10px;
+}
+
+.certification-date,
+.certification-issuer {
+    font-size: 1rem;
+    margin: 5px 0;
+}
+
+/* Logo positioned at the top right of the certification tile */
+.certification-logo {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    width: auto;
+    height: 60px;
+}
+
+/*
+==========================================================================
+    Footer
+==========================================================================
+*/
+footer {
+    position: relative;
+    z-index: 1;
+    background-color: var(--section-darkBackColor);
+    color: #fff;
+    text-align: center;
+    padding: 5px;
+    /* margin-top: 20px; */
+    width: 100%;
+}
+
+.social-links {
+    margin-top: 20px;
+    text-align: center;
+}
+
+.social-links a {
+    margin: 0 10px;
+    color: #fcfbfb;
+    font-size: 2rem;
+    transition: color 0.3s;
+}
+
+.social-links a:hover {
+    color: #818181;
+}
+
+
+/*
+==========================================================================
+    Light Mode Overrides
+==========================================================================
+*/
+.light-mode {
+    background-color: #fff;
+    color: #333;
+}
+
+.light-mode .main-content {
+    background-color: #e8dddd;
+    color: #333;
+}
+
+.light-mode section {
+    background-color: var(--section-lightBackColor);
+    color: #333;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.light-mode .timeline::before {
+    background-color: #007acc;
+}
+
+.light-mode .timeline-item {
+    color: #333;
+}
+
+.light-mode .sidebar ul li a {
+    color: #333;
+    background: transparent;
+}
+
+.light-mode .sidebar ul li a:hover {
+    background: linear-gradient(to right, #9c9696, #7a7171);
+    color: #000;
+}
+
+.light-mode .profile-picture h2 {
+    color: #333;
+}
+
+.light-mode #sidebarToggle {
+    background-color: #007acc;
+    color: #fff;
+}
+
+.light-mode #sidebarToggle:hover {
+    background-color: #163095;
+}
+
+.light-mode button {
+    background-color: #007acc;
+    color: #fff;
+}
+
+.light-mode button:hover {
+    background-color: #163095;
+}
+
+.light-mode .section-title {
+    color: #001d31;
+}
+
+.light-mode .section-title::after {
+    border-bottom: 2px solid #001d31;
+}
+
+.light-mode .timeline-icon {
+    background-color: #ddd;
+    color: #007acc;
+}
+
+.light-mode .timeline-date {
+    color: #666;
+}
+
+.light-mode .experience-item {
+    background-color: var(--section-lightBackColor);
+    color: #333;
+    box-shadow: 0 0 8px rgba(0, 0, 0, 0.1);
+}
+
+.light-mode .experience-item h1 {
+    color: #000;
+}
+
+.light-mode .experience-item h2 {
+    color: #484848;
+}
+
+.light-mode .sidebar {
+    background: linear-gradient(to bottom, #d9d9d9, #a99999);
+}
+
+.light-mode .project-card {
+    color: #000000;
+}
+
+.light-mode .project-header {
+    border-bottom: 2px solid #00adee;
+}
+
+.light-mode .tech-pill {
+    background-color: #d4c9c9;
+    color: #0863ca;
+}
+
+
+.light-mode .skill-tile {
+    color: #333;
+    background-color: #d4c9c9;
+}
+
+.light-mode .skill-tile:hover {
+    background-color: #b6adad;
+}
+
+.light-mode .skill-group:hover {
+    background-color: #4d4c4c0e;
+}
+
+.light-mode #certifications .certification-item {
+    background-color: var(--section-lightBackColor);
+    color: #333;
+}
+
+.light-mode .footer {
+    background-color: #a99999;
+    color: #000000;
+}
+
+.light-mode .social-links a {
+    color: #393939;
+}
+
+.light-mode .social-links a:hover {
+    color: #1b1b1b;
+}

@@ -1,0 +1,474 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>James Zhou Portfolio</title>
+
+    <!-- Include Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.0/css/all.min.css"
+        integrity="sha512-..." crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="styles.css" />
+    <script src="scripts/script.js"></script>
+</head>
+
+<body>
+    <div class="container">
+        <!-- Sidebar -->
+        <div class="sidebar" id="sidebar">
+            <div class="profile-picture">
+                <img src="images/profile-picture.jpg" alt="Profile Picture" loading="lazy">
+                <h2>James Zhou</h2>
+            </div>
+            <!-- Sidebar Navigation -->
+            <ul>
+                <li><a href="#about" class="nav-link"><i class="fa-solid fa-user icon"></i><span>About</span></a></li>
+                <li><a href="#experience" class="nav-link"><i
+                            class="fa-solid fa-briefcase icon"></i><span>Experience</span></a></li>
+                <li><a href="#projects" class="nav-link"><i class="fa-solid fa-code icon"></i><span>Projects</span></a>
+                </li>
+                <li><a href="#skills" class="nav-link"><i
+                            class="fa-solid fa-screwdriver-wrench icon"></i><span>Skills</span></a></li>
+                <li><a href="#certifications" class="nav-link"><i
+                            class="fa-solid fa-certificate icon"></i><span>Certifications</span></a></li>
+                <li><a href="#footer" class="nav-link"><i class="fa-solid fa-envelope icon"></i><span>Contact</span></a>
+                </li>
+            </ul>
+            <!-- Light/Dark Mode Toggle -->
+            <button id="modeToggle">Toggle Light/Dark</button>
+        </div>
+
+        <!-- Sidebar Toggle Button -->
+        <button id="sidebarToggle"></button>
+
+        <!-- Main Content -->
+        <div id="main-content" class="main-content">
+
+            <!-- About me section -->
+            <div class="content-wrapper">
+                <h1 class="section-title">About Me</h1><br>
+                <section id="about" class="about">
+                    <p>
+                        Hi there, and welcome to my website!<br><br>
+                        I’m an IT professional with over 3 years of experience in service delivery, working across both
+                        the IT and Energy industries. I’ve always been passionate about helping people, whether that’s
+                        solving technical issues, improving processes, or just making someone’s day a little easier.<br>
+                        I’ve had the chance to work in customer support roles, managing tickets through platforms like
+                        ServiceNow and Jira, and tackling a range of IT challenges. Lately, I’ve been part of the team
+                        at Kaluza, focusing on customer accounts and meter related issues.<br>
+                        When it comes to tech, I enjoy working with languages and tools like Java, JavaScript,
+                        PowerShell, SQL, HTML, CSS, and PHP. I also love digging into data, analyzing it directly from
+                        databases to find useful insights. I’m always looking to learn new things and grow, both
+                        professionally and personally.<br><br>
+                        Please feel free to reach out to me if you have any queries!
+                    </p>
+                </section>
+            </div>
+
+            <!-- Experience section -->
+            <section id="experience" class="experience-section">
+                <h1 class="section-title">Experience</h1>
+                <div class="timeline">
+                    <!-- Kaluza - Service Desk Analyst -->
+                    <div class="timeline-item">
+                        <p class="timeline-date"><b>Nov 2023 – Dec 2024</b></p>
+                        <div class="timeline-icon-wrapper">
+                            <div class="timeline-icon">
+                                <i class="fa-solid fa-map-marker-alt"></i>
+                            </div>
+                        </div>
+                        <div class="experience-item">
+                            <img class="company-logo" src="images/kaluza-light.png" data-light="images/kaluza-light.png"
+                                data-dark="images/kaluza-dark.png" alt="Kaluza logo">
+                            <h1>Service Desk Analyst</h1>
+                            <h2>Kaluza</h2>
+                            <ul>
+                                <li>Utilized Jira Service Management for client issue resolution</li>
+                                <li>Analyzed data using pgAdmin and BigQuery</li>
+                                <li>Developed SQL queries and Node.js scripts</li>
+                                <li>Collaborated with cross-functional teams</li>
+                                <li>Interfaced with backend systems via Postman APIs</li>
+                                <li>Improved service desk efficiency.</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <!-- Probe CX - ATO IT Senior Service Desk Analyst -->
+                    <div class="timeline-item">
+                        <p class="timeline-date"><b>Mar 2023 - Nov 2023</b></p>
+                        <div class="timeline-icon-wrapper">
+                            <div class="timeline-icon">
+                                <i class="fa-solid fa-map-marker-alt"></i>
+                            </div>
+                        </div>
+                        <div class="experience-item">
+                            <img class="company-logo" src="images/probecx-dark.png"
+                                data-light="images/probecx-light.png" data-dark="images/probecx-dark.png"
+                                alt="Probe CX logo">
+                            <h1>ATO IT Senior Service Desk Analyst</h1>
+                            <h2>Probe CX (contracted to ATO)</h2>
+                            <ul>
+                                <li>Oversaw all IT incidents and requests for VIP clients in the ATO, ensuring swift
+                                    resolution through troubleshooting and collaborating with internal stakeholders
+                                </li>
+                                <li>Monitor and managed incident and request queues, ensuring prompt resolution
+                                    within SLAs to uphold client satisfaction</li>
+                                <li>Analyze and report on ticket metrics, adhere to ServiceNow best practices to
+                                    improve service delivery processes and enhance customer satisfaction</li>
+                                <li>Initiated and orchestrated meetings with internal service providers to foster
+                                    enhanced communication and collaboration between the service desk and other
+                                    internal teams</li>
+                                <li>Developed and deployed scripts and applications to increase overall efficiency
+                                    of routine tasks</li>
+                                <li>Oversaw end-to-end process for customer compliments and complaints, ensuring
+                                    prompt resolution, effective stakeholder collaboration, and continuous service
+                                    delivery improvements</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <p class="timeline-date"><b>May 2022 – Mar 2023</b></p>
+                        <div class="timeline-icon-wrapper">
+                            <div class="timeline-icon">
+                                <i class="fa-solid fa-map-marker-alt"></i>
+                            </div>
+                        </div>
+                        <div class="experience-item">
+                            <img class="company-logo" src="images/probecx-dark.png"
+                                data-light="images/probecx-light.png" data-dark="images/probecx-dark.png"
+                                alt="Probe CX logo">
+                            <h1>ATO IT Service Desk Analyst</h1>
+                            <h2>Probe CX (contracted to ATO)</h2>
+                            <ul>
+                                <li>Provided Level 1 troubleshooting support via inbound calls, emails, and IT
+                                    ServiceNow tickets for ATO end users</li>
+                                <li>Delivered exceptional customer service, ensuring prompt and effective resolution
+                                    of technical issues</li>
+                                <li>Consistently adhered to business metrics with a strong focus on optimizing
+                                    handling time, achieving first call resolution, and upholding quality assurance
+                                    standards</li>
+                                <li>Involved in diligent ticket triaging and escalation processes, collaborating
+                                    with teams for efficient problem resolution and minimal SLA breaches</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <p class="timeline-date"><b>Dec 2021 – Feb 2022</b></p>
+                        <div class="timeline-icon-wrapper">
+                            <div class="timeline-icon">
+                                <i class="fa-solid fa-map-marker-alt"></i>
+                            </div>
+                        </div>
+                        <div class="experience-item">
+                            <img class="company-logo" src="images/coach-dark.png" data-light="images/coach-light.png"
+                                data-dark="images/coach-dark.png" alt="Coach logo">
+                            <h1>Sales Associate</h1>
+                            <h2>Coach</h2>
+                            <ul>
+                                <li>Provided modern luxury customer service, fostering strong customer relationships
+                                </li>
+                                <li>Assisted in innovative store visual merchandise solutions</li>
+                                <li>Established rapport based on honesty and trust</li>
+                                <li>Organized stock to minimize stock finding challenges</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <p class="timeline-date"><b>Sep 2017 – Oct 2017</b></p>
+                        <div class="timeline-icon-wrapper">
+                            <div class="timeline-icon">
+                                <i class="fa-solid fa-map-marker-alt"></i>
+                            </div>
+                        </div>
+                        <div class="experience-item">
+                            <img class="company-logo" src="images/guideDogsVictoria-dark.png"
+                                data-light="images/guideDogsVictoria-light.png"
+                                data-dark="images/guideDogsVictoria-dark.png" alt="Coach logo">
+                            <h1>Orientation and Mobility Specialist </h1>
+                            <h2>Guide Dogs Victoria</h2>
+                            <ul>
+                                <li>Provided leadership for teams during sponsored events, successfully managing and
+                                    guiding large groups</li>
+                                <li>Led physically and visually impaired students in daily mobility training</li>
+                                <li>Conducted evaluations to inform personalized rehabilitation plans</li>
+                                <li>Instructed clients in utilizing sensory information for enhanced mobility</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Projects -->
+            <div class="content-wrapper">
+                <h1 class="section-title">Projects</h1><br>
+                <section id="projects" class="projects-section">
+                    <!-- Discord Music Bot -->
+                    <div class="project-card">
+                        <div class="project-header">
+                            <h2>Rhythm Raymond</h2>
+                            <div class="tech-stack">
+                                <span class="tech-pill">Node.js</span>
+                                <span class="tech-pill">Discord.js</span>
+                                <span class="tech-pill">YouTube API</span>
+                                <span class="tech-pill">SoundCloud API</span>
+                                <span class="tech-pill">Spotify API</span>
+                                <span class="tech-pill">ytdl-core</span>
+                                <span class="tech-pill">MongoDB</span>
+                                <span class="tech-pill">Heroku</span>
+                            </div>
+                        </div>
+                        <div class="project-content">
+                            <ul class="project-description">
+                                <li>Developed as a personal project to enable music playback on Discord servers for all
+                                    users</li>
+                                <li>Built using Node.js and hosted on Heroku for seamless automation and uptime</li>
+                                <li>Integrated multiple APIs including YouTube, SoundCloud, Spotify, and Discord for
+                                    diverse music playback options</li>
+                                <li>Utilized ytdl-core for YouTube streaming and MongoDB for storing server-specific
+                                    settings and configurations</li>
+                                <li>Designed for flexibility, allowing server admins to customize bot settings and
+                                    manage playback efficiently</li>
+                            </ul>
+                            <button class="screenshot-btn" data-screenshot="images/rythmRaymond.png">
+                                <i class="fa-solid fa-eye"></i> View Screenshot
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- RDA Bulk Associations Tool -->
+                    <div class="project-card">
+                        <div class="project-header">
+                            <h2>RDA Bulk Associations Tool</h2>
+                            <div class="tech-stack">
+                                <span class="tech-pill">PowerShell</span>
+                                <span class="tech-pill">Citrix Snappin</span>
+                                <span class="tech-pill">GUI</span>
+                                <span class="tech-pill">Automation</span>
+                                <span class="tech-pill">Bulk Management</span>
+                                <span class="tech-pill">CSV Parsing</span>
+                            </div>
+                        </div>
+                        <div class="project-content">
+                            <ul class="project-description">
+                                <li>Custom PowerShell tool designed to automate user-to-machine associations on Citrix
+                                    servers</li>
+                                <li>Utilizes the Citrix Snappin module to streamline bulk association requests</li>
+                                <li>Developed for the ATO IT Service Desk to improve efficiency in managing large-scale
+                                    user-to-computer assignments</li>
+                                <li>Supports CSV import functionality, enabling seamless data processing and local
+                                    storage within the current runspace</li>
+                                <li>Reduces manual workload and enhances operational efficiency for IT support teams`
+                                </li>
+                            </ul>
+                            <button class="screenshot-btn" data-screenshot="images/bulkRDAtool.png">
+                                <i class="fa-solid fa-eye"></i> View Screenshot
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Bulk Address Update Tool -->
+                    <div class="project-card">
+                        <div class="project-header">
+                            <h2>Bulk Address Update System</h2>
+                            <div class="tech-stack">
+                                <span class="tech-pill">PowerShell</span>
+                                <span class="tech-pill">Active Directory</span>
+                                <span class="tech-pill">GUI</span>
+                                <span class="tech-pill">Automation</span>
+                                <span class="tech-pill">CSV Import</span>
+                                <span class="tech-pill">Bulk Updates</span>
+                            </div>
+                        </div>
+                        <div class="project-content">
+                            <ul class="project-description">
+                                <li>Developed a user-friendly GUI application in PowerShell for streamlined data
+                                    management</li>
+                                <li>Integrated Active Directory commands (Get-ADUser & Set-ADUser) to efficiently
+                                    retrieve and update user information</li>
+                                <li>Enabled CSV data import, allowing bulk updates of address, state, city, and
+                                    postal/ZIP codes</li>
+                                <li>Designed to enhance ATO IT Service Desk productivity, reducing manual effort for
+                                    large-scale address updates</li>
+                                <li>Proven scalability, successfully updating addresses for 3,000 users in a recent
+                                    project</li>
+                            </ul>
+                            <button class="screenshot-btn" data-screenshot="images/bulkAddressUpdate.png">
+                                <i class="fa-solid fa-eye"></i> View Screenshot
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Quick Resets and Unlocks -->
+                    <div class="project-card">
+                        <div class="project-header">
+                            <h2>Quick Resets and Unlocks</h2>
+                            <div class="tech-stack">
+                                <span class="tech-pill">PowerShell</span>
+                                <span class="tech-pill">Active Directory</span>
+                                <span class="tech-pill">.NET Framework</span>
+                                <span class="tech-pill">LDAP</span>
+                                <span class="tech-pill">Windows Event Logs</span>
+                                <span class="tech-pill">Microsoft Graph API</span>
+                            </div>
+                        </div>
+                        <div class="project-content">
+                            <ul class="project-description">
+                                <li>A robust PowerShell script designed for IT support teams to quickly reset user
+                                    passwords and unlock accoun</li>
+                                <li>Utilizes the Active Directory Module for seamless integration with on-premises AD
+                                    environments</li>
+                                <li>Leverages the .NET Framework to enhance performance and extend functionality</li>
+                                <li>Integrates LDAP protocols to support cross-platform directory queries</li>
+                                <li>Records all actions in Windows Event Logs for detailed auditing and troubleshooting
+                                </li>
+                                <li>Offers optional integration with the Microsoft Graph API for managing Office
+                                    365/Azure AD accounts in hybrid setups</li>
+                                <li>Provides an intuitive command-line interface that minimizes manual intervention,
+                                    reduces errors, and saves time</li>
+                            </ul>
+                            <button class="screenshot-btn" data-screenshot="images/quickResetsAndUnlocks.png">
+                                <i class="fa-solid fa-eye"></i> View Screenshot
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Script Hub -->
+                    <div class="project-card">
+                        <div class="project-header">
+                            <h2>Script Hub Interface</h2>
+                            <div class="tech-stack">
+                                <span class="tech-pill">PowerShell</span>
+                                <span class="tech-pill">Dynamic Module Loader</span>
+                                <span class="tech-pill">GUI</span>
+                                <span class="tech-pill">JSON Configuration</span>
+                                <span class="tech-pill">Robust Logging</span>
+                            </div>
+                        </div>
+                        <div class="project-content">
+                            <ul class="project-description">
+                                <li>A one-stop solution to access, run, and manage various automation scripts</li>
+                                <li>Easily update or add new scripts through JSON-based configurations</li>
+                                <li>Offers a streamlined interface for selecting and executing tasks, reducing training
+                                    overhead</li>
+                                <li>Built-in logging ensures all actions are tracked, promoting transparency and easier
+                                    debugging</li>
+                                <li>Designed to grow with your needs, accommodating a diverse range of IT automation
+                                    tasks</li>
+                            </ul>
+                            <button class="screenshot-btn" data-screenshot="images/scriptHub.png">
+                                <i class="fa-solid fa-eye"></i> View Screenshot
+                            </button>
+                        </div>
+                    </div>
+                </section>
+            </div>
+
+            <!-- Skills -->
+            <div class="content-wrapper">
+                <h1 class="section-title">Skills</h1><br><br>
+                <section id="skills" class="skills-section">
+                    <!-- Operations & Support -->
+                    <div class="skill-group">
+                        <span class="skill-tile">Customer Support</span>
+                        <span class="skill-tile">Database Data Analysis</span>
+                        <span class="skill-tile">IT Service Management</span>
+                        <span class="skill-tile">Operations Management</span>
+                        <span class="skill-tile">Performance Reporting</span>
+                        <span class="skill-tile">SLAs Management</span>
+                        <span class="skill-tile">Technical Troubleshooting</span>
+                    </div>
+
+                    <!-- Technical Skills -->
+                    <div class="skill-group">
+                        <span class="skill-tile">Active Directory</span>
+                        <span class="skill-tile">AirWatch</span>
+                        <span class="skill-tile">Amazon Web Services</span>
+                        <span class="skill-tile">Cisco Jabber</span>
+                        <span class="skill-tile">Cisco WebEx</span>
+                        <span class="skill-tile">Citrix Gateway</span>
+                        <span class="skill-tile">Citrix Workspace</span>
+                        <span class="skill-tile">Google Cloud Services</span>
+                        <span class="skill-tile">Group Policies</span>
+                        <span class="skill-tile">Jira Service Management</span>
+                        <span class="skill-tile">M365 Products</span>
+                        <span class="skill-tile">macOS</span>
+                        <span class="skill-tile">Mobile Devices</span>
+                        <span class="skill-tile">Printers and Peripherals</span>
+                        <span class="skill-tile">SCCM</span>
+                        <span class="skill-tile">ServiceNow</span>
+                        <span class="skill-tile">Virtual Machines</span>
+                        <span class="skill-tile">Windows 10 Troubleshooting</span>
+                        <span class="skill-tile">Widnows Firewall</span>
+                    </div>
+
+                    <!-- Programming & Scripting -->
+                    <div class="skill-group">
+                        <span class="skill-tile">CSS</span>
+                        <span class="skill-tile">HTML5</span>
+                        <span class="skill-tile">Java</span>
+                        <span class="skill-tile">JavaScript</span>
+                        <span class="skill-tile">Node.js</span>
+                        <span class="skill-tile">Powershell</span>
+                        <span class="skill-tile">SQL</span>
+                    </div>
+
+                    <!-- Soft Skills & Leadership -->
+                    <div class="skill-group">
+                        <span class="skill-tile">Attention to Detail</span>
+                        <span class="skill-tile">Documentation</span>
+                        <span class="skill-tile">Employee Training</span>
+                        <span class="skill-tile">Leadership</span>
+                        <span class="skill-tile">Problem Solving</span>
+                        <span class="skill-tile">Stakeholder Relations</span>
+                        <span class="skill-tile">Team Management</span>
+                        <span class="skill-tile">Time Management</span>
+                        <span class="skill-tile">Quick Learner</span>
+                    </div>
+                </section>
+            </div>
+
+            <!-- Certifications -->
+            <div class="content-wrapper">
+                <h1 class="section-title">Certifications</h1><br><br>
+                <section id="certifications">
+                    <div class="certification-item">
+                        <img class="certification-logo" src="images/ato-light.png" data-light="images/ato-light.png"
+                            data-dark="images/ato-dark.png" alt="ATO logo">
+                        <h2 class="certification-title">Pre-Engagement Integrity Check</h2>
+                        <p class="certification-date"><strong>Issued: </strong>May 2022</p>
+                        <p class="certification-issuer"><strong>Issuer: </strong>Australian Taxation Office</p>
+                    </div>
+                    <div class="certification-item">
+                        <img class="certification-logo" src="images/defenceAustralia-light.png"
+                            data-light="images/defenceAustralia-light.png" data-dark="images/defenceAustralia-dark.png"
+                            alt="Defence Australia logo">
+                        <h2 class="certification-title">AGSVA Basleine Security Clearance</h2>
+                        <p class="certification-date"><strong>Issued: </strong>January 2023</p>
+                        <p class="certification-issuer"><strong>Issuer: </strong>Defence Australia</p>
+                    </div>
+                </section>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer/Contact -->
+    <footer class="footer" id="footer">
+        <div class="social-links">
+            <a href="https://www.linkedin.com/in/james-zhou-14065417a/" target="_blank"><i
+                    class="fa-brands fa-linkedin"></i></a>
+            <a href="mailto:personal@jameszhou.vip"><i class="fa-solid fa-envelope"></i></a>
+        </div>
+        <br>
+        <p>&copy; 2025 Shuo Zhou</p>
+    </footer>
+</body>
+
+<!-- Unified Screenshot Modal -->
+<div id="screenshotModal" class="screenshot-modal">
+    <div class="screenshot-modal-content">
+        <span class="screenshot-modal-close">&times;</span>
+        <img id="screenshotModalImg" src="" alt="Screenshot" />
+    </div>
+</div>
+
+</html>
