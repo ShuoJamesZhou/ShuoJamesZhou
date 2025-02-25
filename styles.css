@@ -611,18 +611,14 @@ footer {
     Light Mode Overrides
 ==========================================================================
 */
-.light-mode {
-    background-color: #fff;
-    color: #333;
-}
-
 .light-mode .main-content {
     background-color: #e8dddd;
     color: #333;
 }
 
 .light-mode section {
-    background-color: var(--section-lightBackColor);
+    background-color: #f8f8f8;
+    background-color: #00000009;
     color: #333;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
 }

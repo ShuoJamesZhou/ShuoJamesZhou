@@ -65,6 +65,7 @@ document.addEventListener("DOMContentLoaded", () => {
         const certificationLogos = document.querySelectorAll(".certification-logo");
         const isLightMode = document.body.classList.contains("light-mode");
 
+        document.body.style.backgroundColor = isLightMode ? "#e8dddd" : "#121212";
         companyLogos.forEach((companyLogo) => {
             const newSrc = isLightMode
                 ? companyLogo.getAttribute("data-light")
