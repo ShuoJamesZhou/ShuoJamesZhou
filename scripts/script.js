@@ -105,27 +105,6 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     });
 
-    // Contact Form (if present)
-    const contactForm = document.getElementById("contactForm");
-    if (contactForm) {
-        contactForm.addEventListener("submit", function (event) {
-            event.preventDefault();
-            const formData = new FormData(this);
-
-            fetch("https://your-email-api.com/send", {
-                method: "POST",
-                body: formData,
-            })
-                .then((response) => response.json())
-                .then((data) => {
-                    alert("Message sent successfully!");
-                })
-                .catch((error) => {
-                    alert("Error sending message. Please try again.");
-                });
-        });
-    }
-
     // ------------------------------------------------------------------
     // Unified Screenshot Modal Functionality
     // ------------------------------------------------------------------

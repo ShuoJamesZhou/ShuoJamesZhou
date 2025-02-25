@@ -172,7 +172,7 @@ section {
     padding: 40px;
     margin-bottom: 40px;
     border-radius: 8px;
-    width: 1850px;
+    width: 2000px;
     background-color: var(--section-darkBackColor);
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
     opacity: 0;
@@ -222,7 +222,7 @@ section.visible {
 ==========================================================================
 */
 .experience-section {
-    width: 1850px;
+    width: 2000px;
     background-color: #121212;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
     opacity: 0;
@@ -491,7 +491,6 @@ section.visible {
     margin: 5px 0;
 }
 
-/* Logo positioned at the top right of the certification tile */
 .certification-logo {
     position: absolute;
     top: 10px;
@@ -502,28 +501,81 @@ section.visible {
 
 /*
 ==========================================================================
-    Footer
+    Light Mode Overrides
 ==========================================================================
 */
-footer {
-    z-index: 1;
-    width: 2300px;
-    text-align: center;
+.contact-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
     background-color: var(--section-darkBackColor);
-    color: #ffffff;
-    padding: 5px;
+    padding: 40px;
+    border-radius: 8px;
 }
 
+.contact-form {
+    flex: 1;
+    max-width: 50%;
+    text-align: center;
+}
+
+.contact-form h2, .social-links h2 {
+    color: #cff0fb;
+    margin-bottom: 15px;
+}
+
+.input-group {
+    margin-bottom: 15px;
+}
+
+.input-group input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    background-color: #222;
+    color: #fff;
+}
+
+.contact-teaArea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    background-color: #222;
+    color: #fff;
+}
+
+.input-group textarea {
+    height: 100px;
+}
+
+button[type="submit"] {
+    background-color: #00adee;
+    color: #fff;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+button[type="submit"]:hover {
+    background-color: #007acc;
+}
 
 .social-links {
-    margin-top: 20px;
-    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex: 1;
 }
 
 .social-links a {
-    margin: 0 10px;
-    color: #fcfbfb;
+    color: #cff0fb;
     font-size: 2rem;
+    margin: 10px;
     transition: color 0.3s;
 }
 
@@ -531,6 +583,11 @@ footer {
     color: #818181;
 }
 
+.footer-text {
+    text-align: center;
+    margin-top: 20px;
+    color: #b1b1b1;
+}
 
 /*
 ==========================================================================
@@ -667,4 +724,34 @@ footer {
 
 .light-mode .social-links a:hover {
     color: #1b1b1b;
+}
+
+.light-mode .contact-container {
+    background-color: var(--section-lightBackColor);
+}
+
+.light-mode .contact-form h2 {
+    color: #030303;
+}
+
+.light-mode .social-links h2 {
+    color: #000;
+}
+
+.light-mode .input-group input {
+    border: 1px solid #6e6e6e;
+    background-color: #fff;
+    color: #000000;
+}
+
+.light-mode .contact-teaArea {
+    border: 1px solid #6e6e6e; 
+    background-color: #fff;
+    color: #000000;
+}
+
+.light-mode .footer-text {
+    text-align: center;
+    margin-top: 20px;
+    color: #000000;
 }
