@@ -532,7 +532,7 @@ section.visible {
 .input-group input {
     width: 100%;
     padding: 10px;
-    border: 1px solid #ccc;
+    border: 1px solid #817878;
     border-radius: 4px;
     background-color: #222;
     color: #fff;
@@ -541,7 +541,7 @@ section.visible {
 .contact-teaArea {
     width: 100%;
     padding: 10px;
-    border: 1px solid #ccc;
+    border: 1px solid #817878;
     border-radius: 4px;
     background-color: #222;
     color: #fff;
@@ -577,6 +577,7 @@ button[type="submit"]:hover {
     font-size: 2rem;
     margin: 10px;
     transition: color 0.3s;
+    font-size: 40px;
 }
 
 .social-links a:hover {
@@ -739,13 +740,13 @@ button[type="submit"]:hover {
 }
 
 .light-mode .input-group input {
-    border: 1px solid #6e6e6e;
+    border: 1px solid #938b8b;
     background-color: #fff;
     color: #000000;
 }
 
 .light-mode .contact-teaArea {
-    border: 1px solid #6e6e6e;
+    border: 1px solid #938b8b;
     background-color: #fff;
     color: #000000;
 }
