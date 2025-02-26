@@ -9,8 +9,8 @@ document.addEventListener("DOMContentLoaded", () => {
     // Function to Update Dynamic Width
     function updateDynamicWidth() {
         let windowWidth = window.innerWidth;
-        if (windowWidth < 1200) {
-            windowWidth = 1200;
+        if (windowWidth < 1300) {
+            windowWidth = 1300;
         }
         let sidebarWidth = sidebar.classList.contains("hidden") ? 0 : 250; // Sidebar width when visible
 
