@@ -3,22 +3,50 @@ document.addEventListener("DOMContentLoaded", () => {
     const sidebar = document.getElementById("sidebar");
     const sidebarToggle = document.getElementById("sidebarToggle");
     const mainContent = document.getElementById("main-content");
+    const contentWrapper = document.querySelector(".content-wrapper");
     const modeToggleButton = document.getElementById("modeToggle");
 
-    // Update toggle button text and position
-    const updateButtonState = () => {
-        const isHidden = sidebar.classList.contains("hidden");
-        sidebarToggle.innerHTML = isHidden ? "&#9654;" : "&#9664;";
-        sidebarToggle.style.left = isHidden ? "20px" : "270px";
-    };
+    // Function to Update Dynamic Width
+    function updateDynamicWidth() {
+        let windowWidth = window.innerWidth;
+        if (windowWidth < 1200) {
+            windowWidth = 1200;
+        }
+        let sidebarWidth = sidebar.classList.contains("hidden") ? 0 : 250; // Sidebar width when visible
 
-    updateButtonState();
+        // Calculate section width dynamically
+        let sectionWidth = Math.min(windowWidth - sidebarWidth - 100); // Max width cap
 
-    sidebarToggle.addEventListener("click", () => {
+        // Update CSS variables for dynamic width
+        document.documentElement.style.setProperty('--dynamic-sectionWidth', `${sectionWidth}px`);
+
+        // Apply width to content-wrapper
+        contentWrapper.style.width = `${sectionWidth}px`;
+    }
+
+    // Function to Toggle Sidebar
+    function toggleSidebar() {
         sidebar.classList.toggle("hidden");
         mainContent.classList.toggle("expanded");
-        setTimeout(updateButtonState, 0);
+
+        // Delay width update slightly to match sidebar transition
+        setTimeout(updateDynamicWidth, 10);
+    }
+
+    // Update Sidebar Button State
+    function updateButtonState() {
+        const isHidden = sidebar.classList.contains("hidden");
+        sidebarToggle.innerHTML = isHidden ? "&#9654;" : "&#9664;"; // Change arrow direction
+        sidebarToggle.style.left = isHidden ? "20px" : "270px"; // Adjust button position
+    }
+
+    // Event Listeners
+    sidebarToggle.addEventListener("click", () => {
+        toggleSidebar();
+        updateButtonState();
     });
+
+    window.addEventListener("resize", updateDynamicWidth);
 
     // Smooth scroll for navigation links
     document.querySelectorAll(".nav-link").forEach((link) => {
@@ -45,6 +73,7 @@ document.addEventListener("DOMContentLoaded", () => {
     } else {
         document.body.classList.add("dark-mode");
     }
+
     updateCompanyLogos();
     updateButtonText();
 
@@ -59,7 +88,7 @@ document.addEventListener("DOMContentLoaded", () => {
         );
     });
 
-    // Update company logos for theme switching
+    // Function to Update Company Logos Based on Theme
     function updateCompanyLogos() {
         const companyLogos = document.querySelectorAll(".company-logo");
         const certificationLogos = document.querySelectorAll(".certification-logo");
@@ -105,14 +134,11 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     });
 
-    // ------------------------------------------------------------------
-    // Unified Screenshot Modal Functionality
-    // ------------------------------------------------------------------
+    // Screenshot Modal Functionality
     const screenshotModal = document.getElementById("screenshotModal");
     const screenshotModalImg = document.getElementById("screenshotModalImg");
     const screenshotModalClose = document.querySelector(".screenshot-modal-close");
 
-    // Open modal when a screenshot button is clicked
     document.querySelectorAll(".screenshot-btn").forEach((btn) => {
         btn.addEventListener("click", () => {
             const screenshotSrc = btn.getAttribute("data-screenshot");
@@ -121,17 +147,19 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     });
 
-    // Close modal when clicking the close button or outside the modal content
     screenshotModal.addEventListener("click", (e) => {
         if (e.target === screenshotModal || e.target === screenshotModalClose) {
             screenshotModal.style.display = "none";
         }
     });
 
-    // Close modal on Escape key press
     document.addEventListener("keydown", (e) => {
         if (e.key === "Escape") {
             screenshotModal.style.display = "none";
         }
     });
+
+    // Initial setup on page load
+    updateButtonState();
+    updateDynamicWidth();
 });

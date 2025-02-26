@@ -50,8 +50,8 @@ body {
 }
 
 .content-wrapper {
-    padding-left: 5%;
-    width: 100%;
+    width: var(--dynamic-sectionWidth);
+    margin: 0 auto;
 }
 
 /*
@@ -172,7 +172,7 @@ section {
     padding: 40px;
     margin-bottom: 40px;
     border-radius: 8px;
-    width: 2000px;
+    width: 100%;
     background-color: var(--section-darkBackColor);
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
     opacity: 0;
@@ -222,7 +222,7 @@ section.visible {
 ==========================================================================
 */
 .experience-section {
-    width: 2000px;
+    width: 100%;
     background-color: #121212;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
     opacity: 0;
@@ -238,7 +238,7 @@ section.visible {
     box-shadow: 0 0 8px rgba(0, 0, 0, 0.2);
     margin-left: 20px;
     position: relative;
-    width: 1600px;
+    /* width: 1600px; */
 }
 
 .experience-item h1 {
@@ -328,8 +328,8 @@ section.visible {
     position: absolute;
     top: 10px;
     right: 10px;
-    width: 250px;
-    height: 80px;
+    width: auto;
+    height: 50px;
     object-fit: contain;
 }
 
@@ -745,7 +745,7 @@ button[type="submit"]:hover {
 }
 
 .light-mode .contact-teaArea {
-    border: 1px solid #6e6e6e; 
+    border: 1px solid #6e6e6e;
     background-color: #fff;
     color: #000000;
 }
