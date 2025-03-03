@@ -656,7 +656,7 @@ button[type="submit"]:hover {
 }
 
 .light-mode .timeline-icon {
-    background-color: #ddd;
+    background-color: #c0c0c0;
     color: #007acc;
 }
 
@@ -741,13 +741,13 @@ button[type="submit"]:hover {
 
 .light-mode .input-group input {
     border: 1px solid #938b8b;
-    background-color: #fff;
+    background-color: #e9e2e2;
     color: #000000;
 }
 
 .light-mode .contact-teaArea {
     border: 1px solid #938b8b;
-    background-color: #fff;
+    background-color: #e9e2e2;
     color: #000000;
 }
 
