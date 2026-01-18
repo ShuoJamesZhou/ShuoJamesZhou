@@ -551,6 +551,37 @@ section.visible {
     height: 100px;
 }
 
+.input-attachment {
+    margin-top: 15px;
+    padding-bottom: 20px;
+    padding: 10px;
+    border: 2px dashed #00adee;
+    border-radius: 5px;
+    background-color: #222;
+    text-align: center;
+    position:relative
+}
+
+.input-attachment label {
+    color: #cff0fb;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.input-attachment input[type="file"] {
+    display: block;
+    margin-top: 5px;
+    padding: 8px;
+    border: none;
+    background-color: #333;
+    color: #fff;
+    border-radius: 4px;
+}
+
+.input-attachment input[type="file"]:hover {
+    background-color: #444;
+}
+
 button[type="submit"] {
     background-color: #00adee;
     color: #fff;
@@ -749,6 +780,24 @@ button[type="submit"]:hover {
     border: 1px solid #938b8b;
     background-color: #e9e2e2;
     color: #000000;
+}
+
+.light-mode .input-attachment {
+    background-color: #f8f8f8;
+    border-color: #007acc;
+}
+
+.light-mode .input-attachment label {
+    color: #007acc;
+}
+
+.light-mode .input-attachment input[type="file"] {
+    background-color: #ddd;
+    color: #000;
+}
+
+.light-mode .input-attachment input[type="file"]:hover {
+    background-color: #ccc;
 }
 
 .light-mode .footer-text {
