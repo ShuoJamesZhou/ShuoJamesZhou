@@ -1,10 +1,15 @@
 document.addEventListener("DOMContentLoaded", () => {
+    document.body.classList.add("theme-initializing");
+
     // Sidebar, Mode Toggle, and Navigation Code
     const sidebar = document.getElementById("sidebar");
     const sidebarToggle = document.getElementById("sidebarToggle");
     const mainContent = document.getElementById("main-content");
     const contentWrapper = document.querySelector(".content-wrapper");
     const modeToggleButton = document.getElementById("modeToggle");
+    const themeTransitionDuration = 380;
+    let themeTransitionTimer;
+    let logoFadeTimer;
 
     // Function to Update Dynamic Width
     function updateDynamicWidth() {
@@ -76,12 +81,28 @@ document.addEventListener("DOMContentLoaded", () => {
 
     updateCompanyLogos();
     updateButtonText();
+    requestAnimationFrame(() => {
+        document.body.classList.remove("theme-initializing");
+    });
 
     modeToggleButton.addEventListener("click", () => {
+        clearTimeout(themeTransitionTimer);
+        clearTimeout(logoFadeTimer);
+
+        document.body.classList.add("theme-transitioning", "theme-logo-fading");
         document.body.classList.toggle("dark-mode");
         document.body.classList.toggle("light-mode");
         updateButtonText();
-        updateCompanyLogos();
+
+        logoFadeTimer = setTimeout(() => {
+            updateCompanyLogos();
+            document.body.classList.remove("theme-logo-fading");
+        }, themeTransitionDuration / 2);
+
+        themeTransitionTimer = setTimeout(() => {
+            document.body.classList.remove("theme-transitioning");
+        }, themeTransitionDuration + 80);
+
         localStorage.setItem(
             "theme",
             document.body.classList.contains("light-mode") ? "light" : "dark"
@@ -94,7 +115,6 @@ document.addEventListener("DOMContentLoaded", () => {
         const certificationLogos = document.querySelectorAll(".certification-logo");
         const isLightMode = document.body.classList.contains("light-mode");
 
-        document.body.style.backgroundColor = isLightMode ? "#e8dddd" : "#121212";
         companyLogos.forEach((companyLogo) => {
             const newSrc = isLightMode
                 ? companyLogo.getAttribute("data-light")
@@ -138,26 +158,167 @@ document.addEventListener("DOMContentLoaded", () => {
     const screenshotModal = document.getElementById("screenshotModal");
     const screenshotModalImg = document.getElementById("screenshotModalImg");
     const screenshotModalClose = document.querySelector(".screenshot-modal-close");
+    let screenshotModalCloseTimer;
+
+    function openScreenshotModal(src) {
+        clearTimeout(screenshotModalCloseTimer);
+        screenshotModalImg.src = src;
+        screenshotModal.classList.add("is-open");
+    }
+
+    function closeScreenshotModal() {
+        screenshotModal.classList.remove("is-open");
+        screenshotModalCloseTimer = setTimeout(() => {
+            if (!screenshotModal.classList.contains("is-open")) {
+                screenshotModalImg.src = "";
+            }
+        }, 240);
+    }
 
     document.querySelectorAll(".screenshot-btn").forEach((btn) => {
         btn.addEventListener("click", () => {
             const screenshotSrc = btn.getAttribute("data-screenshot");
-            screenshotModalImg.src = screenshotSrc;
-            screenshotModal.style.display = "flex";
+            openScreenshotModal(screenshotSrc);
         });
+    });
+
+    screenshotModalImg.addEventListener("mousedown", (e) => {
+        e.preventDefault();
+    });
+
+    screenshotModalImg.addEventListener("dragstart", (e) => {
+        e.preventDefault();
     });
 
     screenshotModal.addEventListener("click", (e) => {
         if (e.target === screenshotModal || e.target === screenshotModalClose) {
-            screenshotModal.style.display = "none";
+            closeScreenshotModal();
         }
     });
 
     document.addEventListener("keydown", (e) => {
-        if (e.key === "Escape") {
-            screenshotModal.style.display = "none";
+        if (e.key === "Escape" && screenshotModal.classList.contains("is-open")) {
+            closeScreenshotModal();
         }
     });
+
+    // Contact form submission
+    const contactForm = document.getElementById("contactForm");
+    const contactFormStatus = document.getElementById("contactFormStatus");
+    const contactSubmitButton = document.getElementById("contactSubmitButton");
+    const contactAttachment = document.getElementById("contactAttachment");
+    const contactAttachmentLabel = document.getElementById("contactAttachmentLabel");
+
+    if (contactForm && contactFormStatus && contactSubmitButton) {
+        const contactFields = {
+            name: {
+                input: document.getElementById("contactName"),
+                error: document.getElementById("contactNameError"),
+                message: "Please enter your name.",
+                validate: (value) => value.trim().length > 0,
+            },
+            email: {
+                input: document.getElementById("contactEmail"),
+                error: document.getElementById("contactEmailError"),
+                message: "Please enter a valid email address.",
+                validate: (value) => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value.trim()),
+            },
+            message: {
+                input: document.getElementById("contactMessage"),
+                error: document.getElementById("contactMessageError"),
+                message: "Please enter a message.",
+                validate: (value) => value.trim().length > 0,
+            },
+        };
+
+        function setFieldError(field, message) {
+            const group = field.input.closest(".input-group");
+            group.classList.toggle("has-error", Boolean(message));
+            field.input.setAttribute("aria-invalid", Boolean(message).toString());
+            field.error.textContent = message;
+        }
+
+        function validateContactForm() {
+            let firstInvalidField = null;
+
+            Object.values(contactFields).forEach((field) => {
+                const isValid = field.validate(field.input.value);
+                setFieldError(field, isValid ? "" : field.message);
+
+                if (!isValid && !firstInvalidField) {
+                    firstInvalidField = field.input;
+                }
+            });
+
+            if (firstInvalidField) {
+                firstInvalidField.focus();
+                contactFormStatus.textContent = "Please fix the highlighted fields.";
+                contactFormStatus.className = "form-status error";
+                return false;
+            }
+
+            contactFormStatus.textContent = "";
+            contactFormStatus.className = "form-status";
+            return true;
+        }
+
+        Object.values(contactFields).forEach((field) => {
+            field.input.addEventListener("input", () => {
+                if (field.input.getAttribute("aria-invalid") === "true") {
+                    const isValid = field.validate(field.input.value);
+                    setFieldError(field, isValid ? "" : field.message);
+                }
+            });
+        });
+
+        if (contactAttachment && contactAttachmentLabel) {
+            contactAttachment.addEventListener("change", () => {
+                const selectedFile = contactAttachment.files[0];
+                contactAttachmentLabel.textContent = selectedFile ? selectedFile.name : "Choose a file";
+            });
+        }
+
+        contactForm.addEventListener("submit", async (e) => {
+            e.preventDefault();
+
+            if (!validateContactForm()) {
+                return;
+            }
+
+            contactFormStatus.textContent = "Sending...";
+            contactFormStatus.className = "form-status";
+            contactSubmitButton.disabled = true;
+            contactSubmitButton.textContent = "Sending...";
+
+            try {
+                const response = await fetch(contactForm.action, {
+                    method: contactForm.method,
+                    body: new FormData(contactForm),
+                    headers: {
+                        Accept: "application/json",
+                    },
+                });
+
+                if (!response.ok) {
+                    throw new Error("Form submission failed");
+                }
+
+                contactForm.reset();
+                Object.values(contactFields).forEach((field) => setFieldError(field, ""));
+                if (contactAttachmentLabel) {
+                    contactAttachmentLabel.textContent = "Choose a file";
+                }
+                contactFormStatus.textContent = "Thanks, your enquiry has been sent.";
+                contactFormStatus.classList.add("success");
+            } catch (error) {
+                contactFormStatus.textContent = "Sorry, something went wrong. Please email me directly instead.";
+                contactFormStatus.classList.add("error");
+            } finally {
+                contactSubmitButton.disabled = false;
+                contactSubmitButton.textContent = "Send Message";
+            }
+        });
+    }
 
     // Initial setup on page load
     updateButtonState();

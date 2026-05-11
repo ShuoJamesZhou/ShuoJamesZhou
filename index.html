@@ -450,36 +450,81 @@
                 <section id="contact">
                     <div class="contact-container">
                         <div class="contact-form">
-                            <h2>Get in Touch</h2>
-                            <form action="https://formspree.io/f/xpwqgnbv" method="POST">
-                                <div class="input-group">
-                                    <input type="text" name="name" placeholder="Your Name" required>
+                            <form id="contactForm" action="https://formspree.io/f/xpwqgnbv" method="POST"
+                                enctype="multipart/form-data" novalidate>
+                                <div class="input-row">
+                                    <div class="input-group" data-field="name">
+                                        <label class="required-label" for="contactName">Your Name</label>
+                                        <input id="contactName" type="text" name="name" placeholder="Jane Citizen"
+                                            aria-describedby="contactNameError">
+                                        <p id="contactNameError" class="field-error"></p>
+                                    </div>
+                                    <div class="input-group" data-field="email">
+                                        <label class="required-label" for="contactEmail">Your Email</label>
+                                        <input id="contactEmail" type="email" name="email"
+                                            placeholder="jane@example.com" aria-describedby="contactEmailError">
+                                        <p id="contactEmailError" class="field-error"></p>
+                                    </div>
                                 </div>
-                                <div class="input-group">
-                                    <input type="email" name="email" placeholder="Your Email" required>
+                                <div class="input-group" data-field="message">
+                                    <label class="required-label" for="contactMessage">Message</label>
+                                    <textarea id="contactMessage" class="contact-teaArea" name="message"
+                                        placeholder="Tell me what you would like to discuss."
+                                        aria-describedby="contactMessageError"></textarea>
+                                    <p id="contactMessageError" class="field-error"></p>
                                 </div>
-                                <div class="input-group">
-                                    <textarea class="contact-teaArea" name="message" placeholder="Your Message"
-                                        required></textarea>
-                                </div>
-                                <div class="input-group">
-                                    <label>
-                                        Attach a File:
-                                        <input type="file" name="attachment">
+                                <div class="input-group input-attachment">
+                                    <label for="contactAttachment">Attachment</label>
+                                    <input id="contactAttachment" class="file-input" type="file" name="attachment">
+                                    <label class="file-upload-control" for="contactAttachment">
+                                        <span class="file-upload-icon"><i class="fa-solid fa-paperclip"></i></span>
+                                        <span class="file-upload-copy">
+                                            <strong id="contactAttachmentLabel">Choose a file</strong>
+                                            <em>Optional attachment</em>
+                                        </span>
                                     </label>
                                 </div>
-                                <br><br>
-                                <button type="submit">Send Message</button>
+                                <div class="contact-actions">
+                                    <p id="contactFormStatus" class="form-status" role="status" aria-live="polite"></p>
+                                    <button id="contactSubmitButton" type="submit">Send Message</button>
+                                </div>
                             </form>
                         </div>
-                        <div class="social-links">
-                            <h2>Connect with Me</h2>
-                            <p class="contact-detail">Glen Waverley, Victoria</p>
-                            <p><a class="contact-link" href="tel:+61413211929">+61 413 211 929</a></p>
-                            <a class="social-icon" href="https://www.linkedin.com/in/james-zhou-14065417a/"
-                                target="_blank"><i class="fa-brands fa-linkedin"></i></a>
-                            <a class="social-icon" href="mailto:personal@jameszhou.vip"><i
-                                    class="fa-solid fa-envelope"></i></a>
+                        <div class="contact-intro">
+                            <h2>Get in Touch</h2>
+                            <p class="contact-lede">Have a role, project or support challenge in mind? Send through the
+                                details and I will get back to you.</p>
+                            <div class="contact-methods">
+                                <a class="contact-method" href="https://www.linkedin.com/in/james-zhou-14065417a/"
+                                    target="_blank">
+                                    <i class="fa-brands fa-linkedin"></i>
+                                    <span>
+                                        <strong>LinkedIn</strong>
+                                        <em>linkedin.com/in/james-zhou-14065417a</em>
+                                    </span>
+                                </a>
+                                <a class="contact-method" href="mailto:personal@jameszhou.vip">
+                                    <i class="fa-solid fa-envelope"></i>
+                                    <span>
+                                        <strong>Email</strong>
+                                        <em>personal@jameszhou.vip</em>
+                                    </span>
+                                </a>
+                                <a class="contact-method" href="tel:+61413211929">
+                                    <i class="fa-solid fa-phone"></i>
+                                    <span>
+                                        <strong>Phone</strong>
+                                        <em>+61 413 211 929</em>
+                                    </span>
+                                </a>
+                                <div class="contact-method">
+                                    <i class="fa-solid fa-location-dot"></i>
+                                    <span>
+                                        <strong>Location</strong>
+                                        <em>Glen Waverley, Victoria</em>
+                                    </span>
+                                </div>
+                            </div>
                         </div>
                     </div>
                     <p class="footer-text">&copy; 2026 James Zhou</p>
@@ -493,7 +538,7 @@
 <div id="screenshotModal" class="screenshot-modal">
     <div class="screenshot-modal-content">
         <span class="screenshot-modal-close">&times;</span>
-        <img id="screenshotModalImg" src="" alt="Screenshot" />
+        <img id="screenshotModalImg" src="" alt="Screenshot" draggable="false" />
     </div>
 </div>
 
